@@ -1,0 +1,71 @@
+<div class="editor-container">
+    <button class="back-button" (click)="navigateBack()">Back to Products</button>
+    <h1>{{ isEditMode ? 'Edit Product' : 'Create Product' }}</h1>
+    <form class="editor-form" (submit)="onSubmit($event)">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input id="name" type="text" [value]="product.name" (input)="onNameChange($event)" required />
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" [value]="product.description" (input)="onDescriptionChange($event)"
+                required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="cost">Cost:</label>
+            <input id="cost" type="number" [value]="product.cost" (input)="onCostChange($event)" step="0.01" min="0"
+                required />
+        </div>
+        <div class="form-group">
+            <label>
+                SKU:
+                <input type="text" [value]="product.sku" [readonly]="isEditMode" (input)="onSkuChange($event)" />
+            </label>
+
+        </div>
+
+        <div class="form-group">
+            <label for="type">Type:</label>
+            <select id="type" [value]="product.profile.type" (change)="onTypeChange($event)">
+                <option value="furniture">Furniture</option>
+                <option value="equipment">Equipment</option>
+                <option value="stationary">Stationary</option>
+                <option value="part">Part</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input id="available" type="checkbox" [checked]="product.profile.available"
+                    (change)="onAvailableChange($event)" />
+                Available
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label for="backlog">Backlog:</label>
+            <input id="backlog" type="number" [value]="product.profile.backlog || 0" (input)="onBacklogChange($event)"
+                step="1" min="0" />
+        </div>
+
+        <div class="custom-properties">
+            <h3>Custom Properties</h3>
+            <div id="custom-properties-container"></div>
+            <div class="form-group">
+                <label for="newKey">Add Key:</label>
+                <input id="newKey" type="text" [value]="newKey" (input)="onNewKeyChange($event)" />
+            </div>
+            <div class="form-group">
+                <label for="newValue">Add Value:</label>
+                <input id="newValue" type="text" [value]="newValue" (input)="onNewValueChange($event)" />
+            </div>
+            <button type="button" class="add-button" (click)="addCustomProperty()">Add</button>
+        </div>
+
+        <button type="submit" class="submit-button">
+            {{ isEditMode ? 'Save Changes' : 'Create Product' }}
+        </button>
+    </form>
+</div>

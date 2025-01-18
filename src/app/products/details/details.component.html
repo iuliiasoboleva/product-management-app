@@ -1,0 +1,21 @@
+<div class="product-details">
+    <button class="back-button" (click)="navigateBack()">Back to Products</button>
+  
+    <h1>{{ product?.name || 'No Product Name' }}</h1>
+    <p><strong>Description:</strong> {{ product?.description || 'No Description' }}</p>
+    <p><strong>Price:</strong> {{ getFormattedPrice() }}</p>
+  
+    <h2>Additional Properties:</h2>
+    <ul>
+      <li><strong>Type:</strong> {{ product?.profile?.type || 'N/A' }}</li>
+      <li><strong>Available:</strong> {{ product?.profile?.available ? 'Yes' : 'No' }}</li>
+      <li>
+        <strong>Backlog:</strong>
+        {{ product?.profile?.backlog !== null ? product?.profile?.backlog : 'Not Set' }}
+      </li>
+      <li>
+        <strong>Custom Properties:</strong> {{ generateCustomPropertiesText() }}
+      </li>
+    </ul>
+  </div>
+  

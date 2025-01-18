@@ -1,0 +1,11 @@
+<div class="login-container">
+    <h1>Login</h1>
+    <input
+      type="text"
+      placeholder="Enter your token"
+      [value]="token" 
+      (input)="onInputChange($event)"
+      class="login-input"
+    />
+    <button (click)="login()">Login</button>
+</div>

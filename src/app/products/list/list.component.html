@@ -1,0 +1,19 @@
+<div class="product-list">
+  <button class="logout-button" (click)="logout()">Logout</button>
+
+  <h1>Product List</h1>
+  
+  <button class="create-button" (click)="navigateToCreate()">Create Product</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>SKU</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody [innerHTML]="generateProductRows()"></tbody>
+  </table>
+</div>
