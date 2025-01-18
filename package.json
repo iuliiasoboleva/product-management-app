@@ -9,6 +9,7 @@
     "test": "ng test"
   },
   "private": true,
+  "homepage": "https://iuliiasoboleva.github.io/product-management-app/",
   "dependencies": {
     "@angular/animations": "^19.1.0",
     "@angular/common": "^19.1.0",
